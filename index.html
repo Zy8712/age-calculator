@@ -4,74 +4,136 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./custom/calculator-svgrepo-com.svg">
 
-  <title>Frontend Mentor | Age calculator app</title>
+  <title>Age Calculator</title>
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <link rel="stylesheet" type="text/css" href="./style.css">
-
 </head>
-<body>
-  <main>
-    <div class="container">
-      <div class="container-content">
 
-        <div class="entry-boxes-section">
-          <div id="dayEntry">
-            <p class="fieldTitle">Day</p>
-            <input type="text" placeholder="DD" maxlength="2" class="">
-            <div id="dayWarning" class="display-none">
-              <p class="missingField display-none">This field is required</p>
-              <p class="invalidField display-none">Must be a valid day</p>
-            </div>
-          </div>
+<body class="default-theme">
 
-          <div id="monthEntry">
-            <p class="fieldTitle">Month</p>
-            <input type="text" placeholder="MM" maxlength="2" class="">
-            <div id="monthWarning" class="display-none">
-              <p class="missingField display-none">This field is required</p>
-              <p class="invalidField display-none">Must be a valid month</p>
-            </div>
-          </div>
+  <button id="site-appearance-settings">
+    <img id="settings-icon" src="./custom/gear-svgrepo-com.svg" alt="settings_icon">
+  </button>
 
-          <div id="yearEntry">
-            <p class="fieldTitle">Year</p>
-            <input type="text" placeholder="YYYY" maxlength="4" class="">
-            <div id="yearWarning" class="display-none">
-              <p class="missingField display-none">This field is required</p>
-              <p class="invalidField display-none">Must be in the past</p>
-            </div>
-          </div>
+  <div class="settings-popup" id="site-settings-popup">
 
-        </div>
+    <div id="site-settings-popup-box">
+      <div id="settings-popup-box-contents">
 
-        <div class="section-divider">
-          <hr>
-          <button id="calculate-arrow">
-            <img src="./assets/images/icon-arrow.svg" alt="arrow_icon">
+        <div id="dark-light-toggle-box">
+          <h2 id="dark-light-toggle-box-text">Menu Appearance (Light):</h2>
+          <button id="dark-light-button">
+            <img id="light-mode-icon" src="./custom/sun-svgrepo-com.svg" alt="light_mode_icon">
+            <img id="dark-mode-icon" src="./custom/moon-svgrepo-com.svg" alt="night_mode_icon">
           </button>
         </div>
 
-        <div class="age-display-section">
-
-          <p><span id="yearDisplay">--</span> years</p>
-          <p><span id="monthDisplay">--</span> months</p>
-          <p><span id="dayDisplay">--</span> days</p>
+        <div class="settings-heading">
+          <h1>Theme Selection</h1>
+          <span>BETA</span>
         </div>
-
+        <div class="theme-selection">
+          <div id="theme-1" class="default-theme" title="Default Theme">
+          </div>
+          <div id="theme-2" class="mesh-187--7-25-2023" title="Pink Mesh">
+          </div>
+          <div id="theme-3" class="pink-orange-gradient" title="Pink-Orange Gradient">
+          </div>
+          <div id="theme-4" class="global-warming-theme" title="Global Warming Theme">
+          </div>
+          <div id="theme-5" class="strong-glue-theme" title="Stong Glue">
+          </div>
+          <div id="theme-6" class="instagram-story-theme" title="">
+          </div>
+          <div id="theme-7" class="beaubus-white-cloud-pattern-theme" title="White Clouds">
+          </div>
+          <div id="theme-8" class="beaubus_fans_pattern-theme" title="Fan Theme">
+          </div>
+          <div id="theme-9" class="beaubus-vertical-stripes-pattern-theme" title="Vertical Stripes">
+          </div>
+          <div id="theme-10" class="peakpx-reindeer" title="Reindeer">
+          </div>
+          <div id="theme-11" class="peakpx-iceberg" title="Iceberg">
+          </div>
+          <div id="theme-12" class="peakpx-seaside" title="Seaside">
+          </div>
+        </div>
+        <h1 class="everything-pink-heading">EVERYTHING PINK [NOT MY IDEA]</h1>
+        <div class="theme-selection">
+          <div id="everything-pink-pink-pink" class="everything-pink" title="Pink Pink Pink">
+          </div>
+          <div id="pink-pink-mountain" class="polygon-mountain" title="Pink Pink Mountain">
+          </div>
+          <div id="pink-anchors" class="pink-anchors-away-theme" title="Pink Anchors Away">
+          </div>
+        </div>
       </div>
     </div>
-  </main>
+  </div>
 
-  <footer>
-    <div class="attribution">
-      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
-      Coded by <a href="#">Bryan Li</a>.
-    </div>
-  </footer>
 
-  <script type="text/javascript" src="./script.js"></script>
-</body>
-</html>
+    <main>
+      <div class="container container-default-light-theme">
+        <div class="container-content">
+
+          <div class="entry-boxes-section">
+            <div id="dayEntry">
+              <p class="fieldTitle">Day</p>
+              <input type="text" placeholder="DD" maxlength="2" class="">
+              <div id="dayWarning" class="display-none">
+                <p class="missingField display-none">This field is required</p>
+                <p class="invalidField display-none">Must be a valid day</p>
+              </div>
+            </div>
+
+            <div id="monthEntry">
+              <p class="fieldTitle">Month</p>
+              <input type="text" placeholder="MM" maxlength="2" class="">
+              <div id="monthWarning" class="display-none">
+                <p class="missingField display-none">This field is required</p>
+                <p class="invalidField display-none">Must be a valid month</p>
+              </div>
+            </div>
+
+            <div id="yearEntry">
+              <p class="fieldTitle">Year</p>
+              <input type="text" placeholder="YYYY" maxlength="4" class="">
+              <div id="yearWarning" class="display-none">
+                <p class="missingField display-none">This field is required</p>
+                <p class="invalidField display-none">Must be in the past</p>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="section-divider">
+            <hr>
+            <button id="calculate-arrow">
+              <img src="./assets/images/icon-arrow.svg" alt="arrow_icon">
+            </button>
+          </div>
+
+          <div class="age-display-section">
+            <p><span id="yearDisplay">--</span> years</p>
+            <p><span id="monthDisplay">--</span> months</p>
+            <p><span id="dayDisplay">--</span> days</p>
+          </div>
+
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="attribution">
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+        Coded by <a href="#">Bryan Li</a>.
+      </div>
+    </footer>
+
+    <script type="text/javascript" src="./script.js"></script>
+    <script type="text/javascript" src="./prototype.js"></script>
+  </body>
+  </html>

@@ -1,5 +1,7 @@
 
 var errorStateEntered = 0; // if entered error state value is 1, else value is 0
+var darklightValue = false; // false for light, true for dark
+
 
 // Function to store user input in localStorage before the page is refreshed
 window.addEventListener("beforeunload", function() {
@@ -28,6 +30,89 @@ window.addEventListener("load", function() {
 window.onload = function(){
   var calculateButton = document.getElementById("calculate-arrow");
   calculateButton.addEventListener("click", checkConditions);
+
+  var settingsButton = document.getElementById("site-appearance-settings");
+  settingsButton.addEventListener("click", showSettings);
+
+  var dark_light_button = document.getElementById("dark-light-button");
+  dark_light_button.addEventListener("click", switchDarkLight);
+
+  var themeOne = document.getElementById("theme-1");
+  themeOne.addEventListener("click", function(){
+    changeTheme(1);
+  });
+
+  var themeTwo = document.getElementById("theme-2");
+  themeTwo.addEventListener("click", function(){
+    changeTheme(2);
+  });
+
+  var themeThree = document.getElementById("theme-3");
+  themeThree.addEventListener("click", function(){
+    changeTheme(3);
+  });
+
+  var themeFour = document.getElementById("theme-4");
+  themeFour.addEventListener("click", function(){
+    changeTheme(4);
+  });
+
+  var themeFive = document.getElementById("theme-5");
+  themeFive.addEventListener("click", function(){
+    changeTheme(5);
+  });
+
+  var themeSix = document.getElementById("theme-6");
+  themeSix.addEventListener("click", function(){
+    changeTheme(6);
+  });
+
+  var themeSeven = document.getElementById("theme-7");
+  themeSeven.addEventListener("click", function(){
+    changeTheme(7);
+  });
+
+  var themeEight = document.getElementById("theme-8");
+  themeEight.addEventListener("click", function(){
+    changeTheme(8);
+  });
+
+  var themeNine = document.getElementById("theme-9");
+  themeNine.addEventListener("click", function(){
+    changeTheme(9);
+  });
+
+  var themeTen = document.getElementById("theme-10");
+  themeTen.addEventListener("click", function(){
+    changeTheme(10);
+  });
+
+  var themeEleven = document.getElementById("theme-11");
+  themeEleven.addEventListener("click", function(){
+    changeTheme(11);
+  });
+
+  var themeTwelve = document.getElementById("theme-12");
+  themeTwelve.addEventListener("click", function(){
+    changeTheme(12);
+  });
+
+
+
+  var everythingPinkOption1 = document.getElementById("everything-pink-pink-pink");
+  everythingPinkOption1.addEventListener("click", function(){
+    changeTheme(21);
+  });
+
+  var everythingPinkOption2 = document.getElementById("pink-pink-mountain");
+  everythingPinkOption2.addEventListener("click", function(){
+    changeTheme(22);
+  });
+
+  var everythingPinkOption3 = document.getElementById("pink-anchors");
+  everythingPinkOption3.addEventListener("click", function(){
+    changeTheme(20);
+  });
 }
 
 
@@ -218,4 +303,156 @@ function displayCalculatedAge(){
   displayYear.innerHTML = ageYears;
   displayMonth.innerHTML = ageMonths + 1;
   displayDay.innerHTML = ageDays;
+}
+
+function showSettings() {
+  openMenu();
+  var settingsIcon = document.getElementById("settings-icon");
+  var currentRotation = getRotationAngle(settingsIcon);
+
+  if (currentRotation === 0) {
+    // Rotate the icon to -180 degrees
+    settingsIcon.style.transform = "rotate(-180deg)";
+  } else {
+    // Reset the rotation to 0 degrees (original state)
+    settingsIcon.style.transform = "rotate(0deg)";
+  }
+
+  settingsIcon.style.transition = "transform 0.5s ease";
+}
+
+// Helper function to get the current rotation angle of the element
+function getRotationAngle(element) {
+  var st = window.getComputedStyle(element, null);
+  var tr = st.getPropertyValue("transform");
+
+  if (tr) {
+    var values = tr.split('(')[1];
+    values = values.split(')')[0];
+    values = values.split(',');
+    var a = values[0];
+    var b = values[1];
+    var angle = Math.round(Math.atan2(b, a) * (180 / Math.PI));
+    return (angle < 0) ? angle + 360 : angle;
+  }
+  return 0;
+}
+
+var menuOpen = 0;
+function openMenu(){
+  if (menuOpen == 0){
+    var settings_box_popup = document.getElementById("site-settings-popup");
+    settings_box_popup.style.display = "block";
+    menuOpen = 1;
+  }
+  else{
+    var settings_box_popup = document.getElementById("site-settings-popup");
+    settings_box_popup.style.display = "none";
+    menuOpen = 0;
+  }
+}
+
+function switchDarkLight(){
+  var settingsBox = $("site-settings-popup-box");
+  var popupBox = $("settings-popup-box-contents");
+  var toggleBox = $("dark-light-toggle-box");
+  var newBackgroundColor, newTextColor;
+
+  var light_icon = $("light-mode-icon");
+  var dark_icon = $("dark-mode-icon");
+
+  var dark_light_text = $("dark-light-toggle-box-text");
+  console.log(darklightValue);
+
+
+  if (darklightValue == false) {
+    console.log("1");
+    newBackgroundColor = "black";
+    newTextColor = "white";
+    light_icon.style.display = "none";
+    dark_icon.style.display = "block";
+    dark_light_text.innerHTML = "Menu Appearance (Dark):";
+    darklightValue = true;
+  } else if (darklightValue == true){
+    console.log("2");
+
+    newBackgroundColor = "white";
+    newTextColor = "black";
+    light_icon.style.display = "block";
+    dark_icon.style.display = "none";
+    dark_light_text.innerHTML = "Menu Appearance (Light):";
+    darklightValue = false;
+  }
+
+  settingsBox.style.backgroundColor = newBackgroundColor;
+
+  const h2Elements = popupBox.querySelectorAll('h2');
+  h2Elements.forEach(h2 => h2.style.color = newTextColor);
+
+  const h1Elements = popupBox.querySelectorAll('h1');
+  h1Elements.forEach(h1 => h1.style.color = newTextColor);
+}
+
+function changeTheme(val){
+  var bodyElement = document.getElementsByTagName("body")[0];
+
+  if (val == 1){
+    bodyElement.className = "default-theme";
+  }
+
+  if (val == 2){
+    bodyElement.className = "mesh-187--7-25-2023";
+  }
+
+  else if (val == 3){
+    bodyElement.className = "pink-orange-gradient";
+  }
+
+  else if (val == 4){
+    bodyElement.className = "global-warming-theme";
+  }
+
+  else if (val == 5){
+    bodyElement.className = "strong-glue-theme";
+  }
+
+  else if (val == 6){
+    bodyElement.className = "instagram-story-theme";
+  }
+
+  else if (val == 7){
+    bodyElement.className = "beaubus-white-cloud-pattern-theme";
+  }
+
+  else if (val == 8){
+    bodyElement.className = "beaubus_fans_pattern-theme";
+  }
+
+  else if (val == 9){
+    bodyElement.className = "beaubus-vertical-stripes-pattern-theme";
+  }
+
+  else if (val == 10){
+    bodyElement.className = "peakpx-reindeer";
+  }
+
+  else if (val == 11){
+    bodyElement.className = "peakpx-iceberg";
+  }
+
+  else if (val == 12){
+    bodyElement.className = "peakpx-seaside";
+  }
+
+  else if (val == 20) {
+    bodyElement.className = "pink-anchors-away-theme";
+  }
+
+  else if (val == 21){
+    bodyElement.className = "everything-pink";
+  }
+  else if (val == 22){
+    bodyElement.className = "polygon-mountain";
+  }
+
 }
