@@ -520,3 +520,50 @@ main, footer{
     line-height: 65px;
   }
 }
+
+@media screen and (max-width: 767px) {
+  #site-appearance-settings{
+    bottom: 20px;
+    right: 20px;
+  }
+
+  #settings-icon{
+    width: 40px;
+  }
+
+  #site-settings-popup-box {
+    width: 90%;
+    height: 90%; /* Adjust height as needed */
+    margin-left: -45%; /* Adjust left margin to center the box */
+    margin-top: %; /* Adjust top margin to center the box */
+    overflow: scroll;
+  }
+
+  #settings-popup-box-contents{
+    /*border: 3px black solid;*/
+    margin: 25px 50px 100px 50px;
+    height: 100%;
+  }
+
+  .settings-heading > h1 {
+    font-size: 24px;
+    line-height: 24px;
+  }
+
+  .settings-heading > span {
+    font-size: 12px;
+    padding: 6px 15px;
+  }
+
+  .theme-selection {
+    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+    grid-auto-rows: 60px;
+  }
+
+  .everything-pink-heading{
+    margin-top: 45px;
+    margin-bottom: 15px;
+    font-size: 24px;
+    line-height: 24px;
+  }
+}
