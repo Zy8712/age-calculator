@@ -272,7 +272,7 @@ function activateWarnings(val){
   errorStateEntered = 1;
 }
 
-function displayCalculatedAge(){
+/*function displayCalculatedAge(){
   var dateObj = new Date();
   var currentDate = dateObj.getDate(); // day of the month
   var currentMonth = dateObj.getMonth(); // month
@@ -303,7 +303,43 @@ function displayCalculatedAge(){
   displayYear.innerHTML = ageYears;
   displayMonth.innerHTML = ageMonths + 1;
   displayDay.innerHTML = ageDays;
+}*/
+
+function displayCalculatedAge() {
+  const dateObj = new Date();
+  const currentDate = dateObj.getDate(); // day of the month
+  const currentMonth = dateObj.getMonth() + 1; // month (add 1 because getMonth() returns 0-11)
+  const currentYear = dateObj.getFullYear(); // year
+
+  const entryDay = parseInt(document.getElementById("dayEntry").getElementsByTagName("input")[0].value);
+  const entryMonth = parseInt(document.getElementById("monthEntry").getElementsByTagName("input")[0].value);
+  const entryYear = parseInt(document.getElementById("yearEntry").getElementsByTagName("input")[0].value);
+
+  var ageYears = currentYear - entryYear;
+  var ageMonths = currentMonth - entryMonth;
+  var ageDays = currentDate - entryDay;
+
+  if (ageDays < 0) {
+    ageMonths--; // Subtract a month
+    const lastMonth = new Date(currentYear, currentMonth - 2, 0); // Go back two months
+    ageDays += lastMonth.getDate();
+  }
+
+  if (ageMonths < 0) {
+    ageYears--; // Subtract a year
+    ageMonths += 12;
+  }
+
+  var displayYear = document.getElementById("yearDisplay");
+  var displayMonth = document.getElementById("monthDisplay");
+  var displayDay = document.getElementById("dayDisplay");
+
+  displayYear.innerHTML = ageYears;
+  displayMonth.innerHTML = ageMonths;
+  displayDay.innerHTML = ageDays;
 }
+
+
 
 function showSettings() {
   openMenu();
