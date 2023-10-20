@@ -113,6 +113,9 @@ window.onload = function(){
   everythingPinkOption3.addEventListener("click", function(){
     changeTheme(20);
   });
+
+  var closeBirthdayButton = document.getElementById("close-birthday");
+  closeBirthdayButton.addEventListener("click", closeConfetti);
 }
 
 
@@ -337,6 +340,8 @@ function displayCalculatedAge() {
   displayYear.innerHTML = ageYears;
   displayMonth.innerHTML = ageMonths;
   displayDay.innerHTML = ageDays;
+
+  checkBirthdayToday();
 }
 
 
@@ -491,4 +496,38 @@ function changeTheme(val){
     bodyElement.className = "polygon-mountain";
   }
 
+}
+
+function checkBirthdayToday(){
+  const dateObj = new Date();
+  const currentDate = dateObj.getDate(); // day of the month
+  const currentMonth = dateObj.getMonth() + 1; // month (add 1 because getMonth() returns 0-11)
+
+  const entryDay = parseInt(document.getElementById("dayEntry").getElementsByTagName("input")[0].value);
+  const entryMonth = parseInt(document.getElementById("monthEntry").getElementsByTagName("input")[0].value);
+
+
+  if((entryDay == currentDate) && (entryMonth == currentMonth)){
+    var getCanvas = document.getElementById("canvas");
+    getCanvas.style.display = "flex";
+    var birthdayText = document.getElementById("birthday-text");
+    birthdayText.style.display = "block";
+    birthdayText.style.width = "auto";
+    var confettiInstructions = document.getElementById("confetti-instructions");
+    confettiInstructions.style.display = "block";
+    var closeBirthdayButton = document.getElementById("close-birthday");
+    closeBirthdayButton.style.display = "block"
+  }
+
+}
+
+function closeConfetti(){
+  var getCanvas = document.getElementById("canvas");
+  getCanvas.style.display = "none";
+  var birthdayText = document.getElementById("birthday-text");
+  birthdayText.style.display = "none";
+  var confettiInstructions = document.getElementById("confetti-instructions");
+  confettiInstructions.style.display = "none";
+  var closeBirthdayButton = document.getElementById("close-birthday");
+  closeBirthdayButton.style.display = "none"
 }

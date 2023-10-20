@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./custom/calculator-svgrepo-com.svg">
 
@@ -124,16 +126,23 @@
 
         </div>
       </div>
+      <canvas class="confetti" id="canvas"></canvas>
+      <img id="birthday-text" src="./assets/00687_quote_happy_birthday.svg" alt="birthday_img">
+      <span id="confetti-instructions">Click to shoot confetti!!!</span>
+      <img id="close-birthday" src="./assets/close-circle-svgrepo-com.svg" alt="close_img">
     </main>
 
-    <footer>
-      <div class="attribution">
-        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
-        Coded by <a href="#">Bryan Li</a>.
-      </div>
-    </footer>
 
-    <script type="text/javascript" src="./script.js"></script>
-    <script type="text/javascript" src="./prototype.js"></script>
-  </body>
-  </html>
+  <footer>
+    <div class="attribution">
+      Original Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+      Coded by <a href="#">Bryan Li</a>.
+    </div>
+  </footer>
+
+  <script type="text/javascript" src="./script.js"></script>
+  <script type="text/javascript" src="./prototype.js"></script>
+  <script src="./confetti.js"></script>
+</body>
+
+</html>

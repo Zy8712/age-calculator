@@ -526,3 +526,75 @@ footer {
 		line-height: 24px;
 	}
 }
+
+.confetti{
+	width: 100vw;
+	height: 100vh;
+	display: none;
+	margin: 0 auto;
+	border: 1px solid #ddd;
+	position: absolute;
+	z-index: 30;
+	top: 0;
+	left: 0;
+
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}   
+
+#birthday-text{
+	position: absolute;
+	z-index: 29;
+	display: none;
+
+	/* Prevents double-click image selection*/
+	user-select: none;
+	-moz-user-select: none;
+	-webkit-user-drag: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+
+	max-width: 90vw;
+
+	transform: scale(1);
+	animation: pulse 2s infinite;
+}
+
+#confetti-instructions{
+	position: absolute;
+	z-index: 29;
+	bottom: 16px;
+	display: none;
+	font-size: 28px;
+}
+
+@keyframes pulse {
+	0% {
+		transform: scale(1.25);
+	}
+
+	70% {
+		transform: scale(1);
+	}
+
+	100% {
+		transform: scale(1.25);
+	}
+}
+
+#close-birthday{
+	display: none;
+	position: absolute;
+	z-index: 32;
+	top: 20px;
+	right: 20px;
+
+	width: 50px;
+	height: 50px;
+
+	&:hover{
+		cursor: pointer;
+		transform: scale(1.25);
+	}
+}
