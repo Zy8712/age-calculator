@@ -1,7 +1,7 @@
 
 var errorStateEntered = 0; // if entered error state value is 1, else value is 0
 var darklightValue = false; // false for light, true for dark
-
+var easterEggEnabled = true;
 
 // Function to store user input in localStorage before the page is refreshed
 window.addEventListener("beforeunload", function() {
@@ -116,6 +116,9 @@ window.onload = function(){
 
   var closeBirthdayButton = document.getElementById("close-birthday");
   closeBirthdayButton.addEventListener("click", closeConfetti);
+
+  var eeButton = document.getElementById("ee-button");
+  eeButton.addEventListener("click", controlEasterEggs);
 }
 
 
@@ -398,6 +401,7 @@ function switchDarkLight(){
   var popupBox = $("settings-popup-box-contents");
   var toggleBox = $("dark-light-toggle-box");
   var newBackgroundColor, newTextColor;
+  var eeText = document.getElementById("ee-text");
 
   var light_icon = $("light-mode-icon");
   var dark_icon = $("dark-mode-icon");
@@ -414,6 +418,7 @@ function switchDarkLight(){
     dark_icon.style.display = "block";
     dark_light_text.innerHTML = "Menu Appearance (Dark):";
     darklightValue = true;
+    eeText.style.color = "white";
   } else if (darklightValue == true){
     console.log("2");
 
@@ -423,6 +428,7 @@ function switchDarkLight(){
     dark_icon.style.display = "none";
     dark_light_text.innerHTML = "Menu Appearance (Light):";
     darklightValue = false;
+    eeText.style.color = "black";
   }
 
   settingsBox.style.backgroundColor = newBackgroundColor;
@@ -507,7 +513,7 @@ function checkBirthdayToday(){
   const entryMonth = parseInt(document.getElementById("monthEntry").getElementsByTagName("input")[0].value);
 
 
-  if((entryDay == currentDate) && (entryMonth == currentMonth)){
+  if((entryDay == currentDate) && (entryMonth == currentMonth) && easterEggEnabled == true){
     var getCanvas = document.getElementById("canvas");
     getCanvas.style.display = "flex";
     var birthdayText = document.getElementById("birthday-text");
@@ -530,4 +536,16 @@ function closeConfetti(){
   confettiInstructions.style.display = "none";
   var closeBirthdayButton = document.getElementById("close-birthday");
   closeBirthdayButton.style.display = "none"
+}
+
+function controlEasterEggs(){
+  var eeButton = document.getElementById("ee-button");
+  if(easterEggEnabled == true){
+    eeButton.style.backgroundColor = "crimson";
+    easterEggEnabled = false;
+  }
+  else{
+    eeButton.style.backgroundColor = "#20bf55";
+    easterEggEnabled = true;
+  }
 }
