@@ -542,10 +542,12 @@ function controlEasterEggs(){
   var eeButton = document.getElementById("ee-button");
   if(easterEggEnabled == true){
     eeButton.style.backgroundColor = "crimson";
+    eeButton.innerHTML = "Disabled";
     easterEggEnabled = false;
   }
   else{
     eeButton.style.backgroundColor = "#20bf55";
+    eeButton.innerHTML = "Enabled";
     easterEggEnabled = true;
   }
 }
